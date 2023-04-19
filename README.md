@@ -9,3 +9,5 @@ Next, the code calculates the cycle time, which is the time it takes for a bus t
 The code also calculates the headway, which is the time between two consecutive buses on a route. This is determined by taking the average trip duration for a route and adding in any layover time, and then dividing by the number of buses running on the route.
 
 Finally, the code provides output for each of these metrics, including the trip duration, cycle time, dwell time, and headway, along with any relevant statistics or visualizations to help operators and planners make data-driven decisions for bus operations.
+
+A description for each of the code files is included within the file. 
