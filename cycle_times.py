@@ -3,8 +3,11 @@ import os
 
 '''
 This code calculates the cycle times for a set of bus trips, based on a file containing trip durations. It takes in two input parameters: the name of the file containing trip durations (trip_duration_file), and the name of the file to output the cycle times to (cycles_file_out).
+
 The code first checks if the output file already exists, and deletes it if it does. Then, it reads in the trip duration file as a pandas dataframe and extracts the unique dates from the "start_date" column.
+
 The code then loops over each unique date, and for each date, loops over each unique route ID. For each route, the code then loops over each unique vehicle ID, and sorts the dataframe by the hour column. The code then iterates over every two consecutive rows in the sorted dataframe, and if the rows belong to the same trip and have opposite direction IDs, it considers them to be part of a single cycle. The cycle ID is incremented for each new cycle encountered, and the total cycle time (sum of the durations for the two consecutive trips) is added to the output dataframe.
+
 Finally, the code outputs the resulting dataframe with columns for start time, route ID, trip ID, vehicle ID, cycle ID, and cycle time to the specified output file.
 '''
 
