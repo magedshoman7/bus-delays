@@ -1,6 +1,17 @@
 import pandas as pd
 import os
 
+'''
+The code defines a function calc_merged that merges five different CSV files (delay_file_, headway_file, trip_dur_file, dwell_file, and cycle_file) to create two new CSV files (merged_file and merged_file1).
+
+First, the function reads the contents of the five CSV files into separate dataframes using the read_csv function from the pandas library. It then drops certain columns from three of these dataframes (closest, headway, and dwell) using the drop method from pandas.
+
+Next, the function merges the dataframes closest, trip_duration, and headway on certain columns using the merge method from pandas. The resulting dataframe is then merged with dwell on certain columns using the same merge method. The merged dataframe is then saved to a CSV file specified by the merged_file parameter.
+
+Finally, the function drops certain columns from the merged dataframe and merges it with the cycle dataframe on certain columns. The resulting dataframe is then saved to a CSV file specified by the merged_file1 parameter.
+'''
+
+
 def calc_merged(delay_file_,headway_file,trip_dur_file,dwell_file,cycle_file, merged_file,merged_file1):
     if os.path.isfile(merged_file):
         os.remove(merged_file)
