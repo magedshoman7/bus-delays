@@ -12,7 +12,6 @@ Next, the function iterates through each unique stop_id in df_stop_times, which 
 
 Then, for each unique date in start_date from df_delay, the function retrieves all delay information for that date and stop from df_delay. The function merges this delay information with the stop times for the current stop and sorts the resulting dataframe by timestamp. If the resulting dataframe contains more than one row, the function calculates the time differences between consecutive rows in the timestamp column using pd.to_datetime().diff().dt.total_seconds(). The number of buses that arrived between consecutive rows is also calculated as the absolute difference in their order values. Finally, the headway is calculated as the time difference divided by the number of buses that arrived between those two rows. The resulting dataframe is then written to the headway_file CSV file.
 
-In summary, this code reads in stop and delay information, calculates the headway for each bus stop, and outputs the results to a CSV file.
 '''
 
 def calc_headways(stops_file,delay_file_, headway_file):
