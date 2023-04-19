@@ -4,11 +4,8 @@ import numpy as np
 
 '''
 This code calculates the dwell time for bus stops. The input consists of three files: feed_file, delay_file_, and dwell_file. The function starts by removing the existing dwell_file if it already exists. Then, the feed_file and delay_file_ are read as Pandas data frames.
-
 The code then gets the unique dates from the delay_file_ and iterates over them. For each date, it gets the corresponding data from feed_file and delay_file_. It then gets the unique trip_id from the delay_file_ data for the current date and iterates over them. For each trip_id, it gets the corresponding data from feed_file and delay_file_.
-
 For each unique latitude and longitude from the closest column of the closest___ data, the corresponding data from feed___ is merged based on the latitude column. It then calculates the dwell time by subtracting the timestamps of the current and previous rows for the timestamp_y column and assigns the result to the dwell column. The function then sums the dwell column for each unique closest value and assigns the result to the dw column of closest___.
-
 The function then formats the dw column to hour:minute:second format. Finally, the function writes the resulting data frame to dwell_file. If the file does not exist, the function writes the header row, otherwise, it appends the data to the existing file.
 '''
 
