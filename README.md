@@ -1,4 +1,4 @@
-# "Bus Operations Metrics Calculator: Cycle Times, Dwell Times, Headways, and Trip Durations"
+# Bus Operations Metrics Calculator: Cycle Times, Dwell Times, Headways, and Trip Durations
 
 The project enables you to calculate cycle times, dwell times, headways, and trip duration for buses that uses input data from various sources, such as GPS data, scheduling (GTFS) information, to calculate these important metrics for bus operations.
 
