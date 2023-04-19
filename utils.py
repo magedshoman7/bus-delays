@@ -10,6 +10,21 @@ from multiprocessing import Process
 import sched, time, datetime
 s = sched.scheduler(time.time, time.sleep)
 
+
+'''
+The code defines three functions that collect and process real-time transportation data from the website "https://www.metrostlouis.org/RealTimeData/".
+
+The first function is get_RT_Veh_feed(), which retrieves real-time data for the St. Louis metro buses. It first initializes an empty DataFrame and sets the column names for the data to be retrieved. It then sends an HTTP GET request to the website for the real-time data, and if the response status code is 200, it parses the response into a protocol buffer message using gtfs_realtime_pb2.FeedMessage(), converts it to a dictionary using MessageToDict(), and then extracts the relevant fields from the dictionary to populate the DataFrame. The function then converts the timestamps to Central Standard Time and saves the data to a CSV file named "RT_VEH_FEED_.csv" in a directory named "data", creating the file if it doesn't already exist or appending to it if it does. The function returns the DataFrame containing the real-time data.
+
+The second function is get_RT_GL_Feed(), which retrieves real-time data for the St. Louis metro trains. It follows a similar process to the get_RT_Veh_feed() function, but uses a different URL and has a different set of column names for the DataFrame.
+
+The third function is get_feed_updated(), which retrieves real-time updates to the scheduled trips for both the metro buses and trains. It initializes an empty DataFrame and sets the column names for the data to be retrieved. It then sends an HTTP GET request to the website for the real-time data, and if the response status code is 200, it parses the response into a protocol buffer message using gtfs_realtime_pb2.FeedMessage(), converts it to a dictionary using MessageToDict(), and then extracts the relevant fields from the dictionary to populate the DataFrame. The function then converts the timestamps to Central Standard Time and saves the data to a CSV file named "RT_GL_Feed.csv" in a directory named "feed", creating the file if it doesn't already exist or appending to it if it does. The function returns the DataFrame containing the real-time updates.
+
+All three functions use the threading.Timer() function to schedule them to run again after a certain amount of time (60 seconds for the first two functions and 30 seconds for the third function).
+
+'''
+
+
 def get_RT_Veh_feed():
     # threading.Timer(60.0, get_RT_Veh_feed).start()
     url = ('https://www.metrostlouis.org/RealTimeData/StlRealTimeVehicles.pb')
