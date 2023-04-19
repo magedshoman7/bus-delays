@@ -12,7 +12,7 @@ Finally, the code provides output for each of these metrics, including the trip 
 
 A description for what each code file does is included within the file. 
 
-"main.py" can call all functions that perform calculations on your bus data. Here is a brief summary of each function's purpose:
+**main.py** can call all functions that perform calculations on your bus data. Here is a brief summary of each function's purpose:
 
 get_stop_delay: Calculates the delay at each stop based on the assumed minimum distance between stops and a given constant value.
 check_increasing: Checks the increasing order of the stop times in the given file and filters out any decreasing values. It then calculates the trip duration between each stop and saves the result to a new file.
