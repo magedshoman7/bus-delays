@@ -10,4 +10,4 @@ The code also calculates the headway, which is the time between two consecutive 
 
 Finally, the code provides output for each of these metrics, including the trip duration, cycle time, dwell time, and headway, along with any relevant statistics or visualizations to help operators and planners make data-driven decisions for bus operations.
 
-A description for each of the code files is included within the file. 
+A description for what each code file does is included within the file. 
