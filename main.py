@@ -6,7 +6,7 @@ from utils_.dwell import calc_dwell
 from utils_.merging import calc_merged
 
 '''
-This code can calling several functions that perform calculations on bus data. Here is a brief summary of each function's purpose:
+This code can call several functions that perform calculations on bus data. Here is a brief summary of each function's purpose:
 
 get_stop_delay: Calculates the delay at each stop based on the assumed minimum distance between stops and a given constant value.
 check_increasing: Checks the increasing order of the stop times in the given file and filters out any decreasing values. It then calculates the trip duration between each stop and saves the result to a new file.
