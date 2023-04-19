@@ -6,6 +6,7 @@ from datetime import timedelta
 
 '''
 This code contains several functions for processing transit data. The main function is get_stop_delay, which takes two arguments: val and dist. val is a binary value (1 or 0) that indicates whether or not to initialize the processing. If val is 1, the function calls init_proc to generate a CSV file of stop and trip information. If val is 0, the function reads in the CSV file. dist is a distance threshold in miles for finding the closest stop to a bus from the real-time feed data.
+
 The init_proc function reads in static transit data from the 'data/static' directory and generates a CSV file of stop and trip information. The stop_info_merge function reads in static transit data and merges stop and trip information to create a single data frame. The get_bus_feed function reads in real-time transit data from the 'RT_VEH_FEED_.csv' file in the specified directory. The get_vehicle_stops function finds the closest stop to each bus and calculates the delay in minutes between the expected arrival time at the stop and the actual arrival time reported by the real-time feed data.
 '''
 
