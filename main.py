@@ -5,7 +5,16 @@ from utils_.headways import calc_headways
 from utils_.dwell import calc_dwell
 from utils_.merging import calc_merged
 
+'''
+This code can calling several functions that perform calculations on bus data. Here is a brief summary of each function's purpose:
 
+get_stop_delay: Calculates the delay at each stop based on the assumed minimum distance between stops and a given constant value.
+check_increasing: Checks the increasing order of the stop times in the given file and filters out any decreasing values. It then calculates the trip duration between each stop and saves the result to a new file.
+calc_cycle_times: Calculates the cycle time of each trip by adding up the trip duration between each stop, and saves the result to a new file.
+calc_headways: Calculates the headway (the time interval between successive vehicles on the same route) at each stop, and saves the result to a new file.
+calc_dwell: Calculates the dwell time (the time spent at a stop) at each stop based on real-time data, and saves the result to a new file.
+calc_merged: Merges the results of the previous calculations (delay, headway, trip duration, dwell time, and cycle time) into a single file, and saves the result to a new file.
+'''
 
 ## calculate delays
 # val = 1
