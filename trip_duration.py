@@ -2,6 +2,16 @@ import pandas as pd
 from datetime import timedelta
 import os
 
+'''
+This code takes in a CSV file of trip data (delay_file_), as well as a CSV file of stop times (df_stop_times), and produces an output CSV file (out_file) containing information about each trip, such as the trip ID, vehicle ID, route ID, direction ID, start date, hour, distance traveled, speed, and duration.
+
+The code works by iterating over each unique date in the delay_file_ and then iterating over each unique trip ID within that date. For each trip, the code first checks if there are any erroneous timestamps by calling the check_misassignment function, which calculates the time difference between consecutive timestamps and checks if any are negative. If there are no negative time differences, the function returns a check_val of 0, indicating no mismatching. If there are negative time differences, the function returns a check_val of 1, indicating mismatching timestamps.
+
+Next, the duration_estimate function is called, which takes in the current trip data, the check_val, and the current date, and calculates the distance traveled and the duration of the trip. If check_val is 1, meaning there are mismatching timestamps, the function calculates the duration of the trip by splitting it into two parts: the first part from the start of the trip to 59 minutes and 59 seconds past midnight, and the second part from 0 hours and 0 minutes and 0 seconds to 23 hours and 59 minutes and 59 seconds past midnight the next day. The function then calculates the total time of the trip as the sum of these two parts. If check_val is 0, meaning there are no mismatching timestamps, the function calculates the duration of the trip as the difference between the maximum and minimum timestamps.
+
+After calculating the distance and duration of the trip, the code checks if the distance traveled is greater than 100 (presumably in some units of distance). If it is, the code calculates the speed of the trip as the ratio of the distance traveled to the distance between the first and last stops, and the duration of the trip as the product of the distance traveled and the ratio of the distance between the first and last stops to the duration of the trip. Finally, the code appends this information to a dataframe, df_out, which is later saved to the output CSV file.
+'''
+
 def check_misassignment(cur_trip):
     cur_trip['time_diff'] = pd.to_datetime(cur_trip['timestamp']).diff().dt.total_seconds()
     df_check = cur_trip[cur_trip['time_diff'] < 0].shape[0]
